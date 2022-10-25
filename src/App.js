@@ -1,25 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { usePokemon } from './Hooks/usePokemon';
+import { PokemonCard } from './Components/pokemonCard'
 
 function App() {
-  return (
+  const { pokemon, next, prev } = usePokemon(2)
+
+  return pokemon ? (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <PokemonCard
+        id={pokemon.id}
+        name={pokemon.name}
+        image={pokemon.sprites.front_default}
+        types={pokemon.types}
+        poder={Math.floor(Math.random() * 100)}
+      />
+
+      <div className='btnsCont'>
+        <button onClick={prev}>Prev</button>
+        <button onClick={next}>Next</button>
+      </div>
+
     </div>
-  );
+  ) : 'Cargando...'
 }
 
 export default App;
