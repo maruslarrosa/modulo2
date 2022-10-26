@@ -9,11 +9,10 @@ function App() {
     <div className="App">
 
       <PokemonCard
-        id={pokemon.id}
         name={pokemon.name}
+        id={pokemon.id}
         image={pokemon.sprites.front_default}
         types={pokemon.types}
-        poder={Math.floor(Math.random() * 100)}
       />
 
       <div className='btnsCont'>
