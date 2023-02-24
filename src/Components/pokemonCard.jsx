@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-export const PokemonCard = ({ id, name, image, types, poder="????" }) => {
+export const PokemonCard = ({ id, name, image, types, poder }) => {
 
     return (
         <div className='contCenter'>
@@ -17,9 +17,12 @@ export const PokemonCard = ({ id, name, image, types, poder="????" }) => {
 }
 
 PokemonCard.propTypes = {
-    name: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
     types: PropTypes.array.isRequired,
-    poder: PropTypes.number
+    poder: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+      ]).isRequired,
 }
