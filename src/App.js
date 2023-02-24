@@ -4,6 +4,9 @@ import { usePokemon } from './Hooks/usePokemon';
 import { PokemonCard } from './Components/pokemonCard'
 
 function App() {
+/**
+ * @type {object}
+ */
   const { pokemon, next, prev } = usePokemon(2)
 
   return pokemon ? (
